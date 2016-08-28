@@ -18,7 +18,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void updateBookName(long id, String name) {
-        
     }
 
     @Override
