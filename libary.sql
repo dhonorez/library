@@ -1,4 +1,4 @@
-CREATE TABLE book (
+CREATE TABLE library.book (
 	id BIGSERIAL NOT NULL,
 	title varchar(50) NOT NULL,
 	isbn varchar(20),
@@ -6,7 +6,7 @@ CREATE TABLE book (
 	author varchar(100),
 	CONSTRAINT book_pk PRIMARY KEY (id));
 
-CREATE TABLE user (
+CREATE TABLE library.user (
 	id BIGSERIAL NOT NULL,
 	username varchar(50) NOT NULL,
 	firstname varchar(50) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE user (
 	email varchar(100) NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY (id));
 
-CREATE TABLE rental (
+CREATE TABLE library.rental (
 	id BIGSERIAL NOT NULL,
 	book_id BIGINT NOT NULL,
 	user_id BIGINT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE rental (
 	CONSTRAINT rental_book_fk1 FOREIGN KEY (book_id) REFERENCES library.book (id),
 	CONSTRAINT rental_user_fk1 FOREIGN KEY (user_id) REFERENCES library.user (id));
 
-CREATE TABLE suggestion (
+CREATE TABLE library.suggestion (
 	id BIGSERIAL NOT NULL,
 	user_id BIGINT NOT NULL,
 	url varchar(200),
@@ -33,7 +33,7 @@ CREATE TABLE suggestion (
 	CONSTRAINT suggestion_pk PRIMARY KEY (id),
 	CONSTRAINT suggestion_user_fk1 FOREIGN KEY (user_id) REFERENCES library.user (id));
 
-CREATE TABLE tag (
+CREATE TABLE library.tag (
 	id BIGSERIAL NOT NULL,
 	book_id BIGINT NOT NULL,
 	value varchar(50),
