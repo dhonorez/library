@@ -10,7 +10,8 @@ import java.util.List;
 public class Book {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOOK_SEQ")
+    @SequenceGenerator(name = "BOOK_SEQ",  initialValue = 2, allocationSize = 1)
     private long id;
     private String title;
     private String isbn;

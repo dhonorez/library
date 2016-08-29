@@ -10,7 +10,8 @@ import java.util.Date;
 public class Rental {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RENT_SEQ")
+    @SequenceGenerator(name = "RENT_SEQ", sequenceName = "rental_sequence")
     private long id;
 
     @ManyToOne

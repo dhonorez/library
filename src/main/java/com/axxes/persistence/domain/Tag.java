@@ -9,7 +9,8 @@ import javax.persistence.*;
 public class Tag {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TAG_SEQ")
+    @SequenceGenerator(name = "TAG_SEQ", sequenceName = "tag_sequence")
     private long id;
     private String value;
 

@@ -1,9 +1,6 @@
 package com.axxes.persistence.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by Alex on 26/08/16.
@@ -12,7 +9,8 @@ import javax.persistence.ManyToOne;
 public class Suggestion {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUGG_SEQ")
+    @SequenceGenerator(name = "SUGG_SEQ", sequenceName = "suggest_sequence")
     private long id;
 
     @ManyToOne

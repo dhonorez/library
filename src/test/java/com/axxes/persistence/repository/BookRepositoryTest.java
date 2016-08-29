@@ -41,6 +41,7 @@ public class BookRepositoryTest {
         book = bookRepository.save(book);
 
         assertThat(book.getId()).isNotNull();
+
     }
 
     @Test
