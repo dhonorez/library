@@ -4,8 +4,13 @@ import com.axxes.persistence.domain.Book;
 import com.axxes.persistence.repository.BookRepository;
 import com.axxes.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
@@ -19,7 +24,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> getAllAuthors() {
-        return null;
+
+        return bookRepository.;
     }
 
     @Override
