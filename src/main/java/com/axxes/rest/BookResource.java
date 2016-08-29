@@ -1,6 +1,10 @@
 package com.axxes.rest;
 
+import com.axxes.persistence.domain.Book;
 import com.axxes.service.BookService;
+import com.google.common.collect.Lists;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +14,20 @@ import java.util.List;
 /**
  * Created by Alex on 26/08/16.
  */
-@Component
-@RestController
+@RestController()
 @RequestMapping("/book")
 public class BookResource {
 
     @Autowired
     private BookService bookService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookResource.class);
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<Book> getBooks() {
+        LOGGER.info("received get all books request");
+        return Lists.newArrayList(bookService.findAll());
+    }
 
     @RequestMapping(value = "/authors", method = RequestMethod.GET)
     public List<String> getAllAuthors() {

@@ -1,15 +1,24 @@
 package com.axxes.persistence.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by Alex on 26/08/16.
  */
+@Entity
 public class Rental {
 
+    @Id
+    @GeneratedValue
     private long id;
+
+    @ManyToOne
     private Book book;
+
+    @ManyToOne
     private User user;
+
     private Date pickupDate;
     private Date returnDate;
 

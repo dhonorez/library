@@ -1,17 +1,23 @@
 package com.axxes.persistence.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by Alex on 26/08/16.
  */
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue
     private long id;
     private String title;
     private String isbn;
     private int year;
     private String author;
+
+    @OneToMany(mappedBy = "book")
     private List<Tag> tags;
 
     public long getId() {

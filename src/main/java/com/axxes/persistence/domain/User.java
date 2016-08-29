@@ -1,9 +1,19 @@
 package com.axxes.persistence.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by Alex on 26/08/16.
  */
+@Entity
+@Table(name = "libuser")
 public class User {
+
+    @Id
+    @GeneratedValue
     private long id;
     private String userName;
     private String firstName;

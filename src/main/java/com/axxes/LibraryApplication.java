@@ -8,10 +8,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
-
-@SpringBootApplication(exclude = {MongoDataAutoConfiguration.class, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@ComponentScan(basePackages = "com.axxes")
-@ImportResource("classpath:context.xml")
+@SpringBootApplication
 public class LibraryApplication {
 
 	public static void main(String[] args) {

@@ -1,12 +1,23 @@
 package com.axxes.persistence.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  * Created by Alex on 26/08/16.
  */
+@Entity
 public class Suggestion {
 
+    @Id
+    @GeneratedValue
     private long id;
+
+    @ManyToOne
     private User user;
+
     private String url;
     private String motivation;
     private String isbn;
