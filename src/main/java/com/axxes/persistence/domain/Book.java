@@ -1,6 +1,12 @@
 package com.axxes.persistence.domain;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +23,15 @@ public class Book {
     private String isbn;
     private int year;
     private String author;
+
+    @CreatedDate
+    private Date created;
+    @CreatedBy
+    private String createdBy;
+    @LastModifiedBy
+    private String updatedBy;
+    @LastModifiedDate
+    private Date updated;
 
     @OneToMany(mappedBy = "book")
     private List<Tag> tags;
