@@ -10,7 +10,7 @@ public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TAG_SEQ")
-    @SequenceGenerator(name = "TAG_SEQ", sequenceName = "tag_sequence")
+    @SequenceGenerator(name = "TAG_SEQ", sequenceName = "tag_sequence", initialValue = 10, allocationSize = 1)
     private long id;
     private String value;
 

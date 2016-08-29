@@ -15,6 +15,6 @@ public interface BookService {
 
     Integer getNumberOfBooks();
 
-    Iterable<Book> findAll();
+    List<Book> findAll();
 
 }

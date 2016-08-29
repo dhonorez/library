@@ -11,7 +11,7 @@ public class Rental {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RENT_SEQ")
-    @SequenceGenerator(name = "RENT_SEQ", sequenceName = "rental_sequence")
+    @SequenceGenerator(name = "RENT_SEQ", sequenceName = "rental_sequence", initialValue = 10, allocationSize = 1)
     private long id;
 
     @ManyToOne

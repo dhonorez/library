@@ -10,7 +10,7 @@ public class Suggestion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUGG_SEQ")
-    @SequenceGenerator(name = "SUGG_SEQ", sequenceName = "suggest_sequence")
+    @SequenceGenerator(name = "SUGG_SEQ", sequenceName = "suggest_sequence", initialValue = 10, allocationSize = 1)
     private long id;
 
     @ManyToOne

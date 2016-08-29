@@ -26,7 +26,7 @@ public class BookResource {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Book> getBooks() {
         LOGGER.info("received get all books request");
-        return Lists.newArrayList(bookService.findAll());
+        return bookService.findAll();
     }
 
     @RequestMapping(value = "/authors", method = RequestMethod.GET)
