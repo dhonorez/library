@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -31,6 +29,20 @@ public class BookRepositoryCustomImpl implements BookRepositoryCustom {
 
         TypedQuery<Book> query = entityManager.createQuery(cq);
         return query.getResultList();
+    }
+
+    public List<Book> testIsVeryRecentOrVeryOld() {
+        LocalDate today = LocalDate.now();
+
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Book> query = builder.createQuery(Book.class);
+        Root<Book> root = query.from(Book.class);
+
+        Predicate isFromCurrentYear = builder.equal(root.get(Book_.year), today.getYear());
+        Predicate olderThanFiveYears = builder.lessThan(root.get(Book_.year), today.minusYears(10).getYear());
+        query.where(builder.or(isFromCurrentYear, olderThanFiveYears));
+
+        return entityManager.createQuery(query.select(root)).getResultList();
     }
 
 }
