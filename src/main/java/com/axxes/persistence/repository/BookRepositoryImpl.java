@@ -1,7 +1,9 @@
 package com.axxes.persistence.repository;
 
 import com.axxes.persistence.domain.Book;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -20,7 +22,8 @@ public class BookRepositoryImpl implements BookRepositoryCustom {
     }
 
     public List<Book> someCriteriaQuery() {
-        entityManager.createQuery()
+//        entityManager.createQuery();
+        //This should be fixed
+        throw new NotImplementedException();
     }
-
 }
