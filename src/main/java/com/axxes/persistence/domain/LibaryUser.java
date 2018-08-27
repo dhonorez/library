@@ -17,12 +17,16 @@ public class LibaryUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String userName;
+
     @Column
     private String firstName;
+
     @Column
     private String lastName;
+
     @Column
     private String email;
 
@@ -112,5 +116,7 @@ public class LibaryUser {
         public LibaryUser build() {
             return new LibaryUser(id, userName, firstName, lastName, email);
         }
+
     }
+
 }

@@ -18,10 +18,13 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookResource {
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookResource.class);
+
+    public BookResource(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Book> getBooks() {
@@ -50,4 +53,5 @@ public class BookResource {
     public Integer getNumberOfBooks() {
         return bookService.getNumberOfBooks();
     }
+
 }

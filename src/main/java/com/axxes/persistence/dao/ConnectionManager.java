@@ -7,16 +7,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@Component
-public final class ConnectionManager
-{
-    @Value("${db.user}")
+public final class ConnectionManager {
+
+    @Value("${spring.datasource.user}")
     private String user;
 
-    @Value("${db.password}")
+    @Value("${spring.datasource.password}")
     private String password = "root";
 
-    @Value("${db.url}")
+    @Value("${spring.datasource.url}")
     private String url;
 
     private Connection connection;
@@ -34,7 +33,7 @@ public final class ConnectionManager
 
     public void closeConnection() {
         try {
-            if(!connection.isClosed()) {
+            if (!connection.isClosed()) {
                 connection.close();
                 connection = null;
             }
@@ -42,4 +41,5 @@ public final class ConnectionManager
             e.printStackTrace();
         }
     }
+
 }

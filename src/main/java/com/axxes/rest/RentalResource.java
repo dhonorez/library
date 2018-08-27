@@ -19,8 +19,11 @@ import java.util.List;
 @RequestMapping("/rental")
 public class RentalResource {
 
-    @Autowired
-    private RentalService rentalService;
+    private final RentalService rentalService;
+
+    public RentalResource(RentalService rentalService) {
+        this.rentalService = rentalService;
+    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Rental> getAllRentals() {
@@ -42,4 +45,5 @@ public class RentalResource {
     public void returnRental(@PathVariable long rentalId) {
         rentalService.returnRental(rentalId);
     }
+
 }

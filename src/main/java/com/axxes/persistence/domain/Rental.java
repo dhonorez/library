@@ -12,13 +12,17 @@ public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @OneToOne
     private Book book;
+
     @OneToOne
     @JoinColumn(name = "libraryuser_id")
     private LibaryUser user;
+
     @Column(name = "pickup_date")
     private Date pickupDate;
+
     @Column(name = "return_date")
     private Date returnDate;
 
@@ -108,5 +112,7 @@ public class Rental {
         public Rental build() {
             return new Rental(id, book, libraryUser, pickupDate, returnDate);
         }
+
     }
+
 }

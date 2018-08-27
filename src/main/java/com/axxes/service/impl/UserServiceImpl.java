@@ -5,22 +5,24 @@ import com.axxes.persistence.dao.SuggestionDao;
 import com.axxes.persistence.domain.LibaryUser;
 import com.axxes.persistence.domain.Suggestion;
 import com.axxes.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
 /**
  * Created by Alex on 26/08/16.
  */
-@Component
+@Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private LibraryUserDao libraryUserDao;
+    private final LibraryUserDao libraryUserDao;
+    private final SuggestionDao suggestionDao;
 
-    @Autowired
-    private SuggestionDao suggestionDao;
+    public UserServiceImpl(LibraryUserDao libraryUserDao, SuggestionDao suggestionDao) {
+        this.libraryUserDao = libraryUserDao;
+        this.suggestionDao = suggestionDao;
+    }
 
     @Override
     public List<LibaryUser> getUsersWithSuggestion() {
@@ -54,11 +56,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUserWithSuggestion(LibaryUser libraryUser, Suggestion suggestion) {
-
+        throw new NotImplementedException();
     }
 
     @Override
     public void removeUser(long id) {
         libraryUserDao.removeUser(id);
     }
+
 }

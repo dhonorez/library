@@ -17,13 +17,17 @@ public class Suggestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @ManyToOne
     @JoinColumn(name = "libraryuser_id")
     private LibaryUser libraryUser;
+
     @Column
     private String url;
+
     @Column
     private String motivation;
+
     @Column
     private String isbn;
 
@@ -117,4 +121,5 @@ public class Suggestion {
             return new Suggestion(id, libraryUser, url, motivation, isbn);
         }
     }
+
 }

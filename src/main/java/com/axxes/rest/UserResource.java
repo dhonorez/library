@@ -3,13 +3,8 @@ package com.axxes.rest;
 import com.axxes.persistence.domain.LibaryUser;
 import com.axxes.persistence.domain.Suggestion;
 import com.axxes.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +16,11 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserResource {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserResource(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<LibaryUser> getAllUsers() {
@@ -84,4 +82,5 @@ public class UserResource {
     public void removeUser(@PathVariable long id) {
         userService.removeUser(id);
     }
+
 }

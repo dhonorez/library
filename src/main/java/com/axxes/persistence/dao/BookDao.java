@@ -2,10 +2,11 @@ package com.axxes.persistence.dao;
 
 import com.axxes.persistence.domain.Book;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component
+@Repository
 public class BookDao {
 
     public List<Book> getAllAuthors() {
@@ -22,4 +23,5 @@ public class BookDao {
     public void updateBookTitle(long id, String title) {
 
     }
+
 }

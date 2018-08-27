@@ -11,20 +11,18 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import java.util.Properties;
 
-@Configuration
 public class PersistenceConfig {
 
-
-    @Value("${driver.class.name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
-    @Value("${db.url}")
+    @Value("${spring.datasource.url}")
     private String url;
 
-    @Value("${db.user}")
+    @Value("${spring.datasource.user}")
     private String user;
 
-    @Value("${db.password}")
+    @Value("${spring.datasource.password}")
     private String password;
 
     public DriverManagerDataSource dataSource() {

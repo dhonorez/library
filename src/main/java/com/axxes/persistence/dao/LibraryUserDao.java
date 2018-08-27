@@ -2,10 +2,11 @@ package com.axxes.persistence.dao;
 
 import com.axxes.persistence.domain.LibaryUser;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component
+@Repository
 public class LibraryUserDao {
 
     public List<LibaryUser> getUsersWithSuggestion() {
@@ -34,4 +35,5 @@ public class LibraryUserDao {
 
     public void removeUser(long id) {
     }
+
 }

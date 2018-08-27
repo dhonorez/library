@@ -1,7 +1,8 @@
 package com.axxes.persistence.dao;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class TagDao {
+
 }

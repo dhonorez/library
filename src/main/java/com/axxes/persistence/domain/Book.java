@@ -21,12 +21,16 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String title;
+
     @Column
     private String isbn;
+
     @Column
     private int year;
+
     @Column
     private String author;
 
@@ -135,5 +139,7 @@ public class Book {
         public Book build() {
             return new Book(id, title, isbn, year, author, tags);
         }
+
     }
+
 }

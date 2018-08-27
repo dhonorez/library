@@ -20,8 +20,11 @@ import java.util.List;
 @RequestMapping("/suggestion")
 public class SuggestionResource {
 
-    @Autowired
-    private SuggestionService suggestionService;
+    private final SuggestionService suggestionService;
+
+    public SuggestionResource(SuggestionService suggestionService) {
+        this.suggestionService = suggestionService;
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void createSuggestion(@RequestParam(value="userId") long userId,
@@ -40,4 +43,5 @@ public class SuggestionResource {
     public List<Suggestion> getAllSuggestion(@PathVariable long userId) {
         return suggestionService.getAllSuggestion(userId);
     }
+
 }

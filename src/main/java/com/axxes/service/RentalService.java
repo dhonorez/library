@@ -16,4 +16,5 @@ public interface RentalService {
     void createRental(long bookId, long userId);
 
     void returnRental(long rentalId);
+
 }

@@ -4,22 +4,23 @@ import com.axxes.persistence.dao.BookDao;
 import com.axxes.persistence.domain.Book;
 import com.axxes.persistence.repository.BookRepository;
 import com.axxes.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Alex on 26/08/16.
  */
-@Component
+@Service
 public class BookServiceImpl implements BookService {
 
-    @Autowired
-    private BookDao bookDao;
+    private final BookDao bookDao;
+    private final BookRepository bookRepository;
 
-    @Autowired
-    private BookRepository bookRepository;
+    public BookServiceImpl(BookDao bookDao, BookRepository bookRepository) {
+        this.bookDao = bookDao;
+        this.bookRepository = bookRepository;
+    }
 
     @Override
     public List<Book> getAllAuthors() {
@@ -45,4 +46,5 @@ public class BookServiceImpl implements BookService {
     public Iterable<Book> findAll() {
         return bookRepository.findAll();
     }
+
 }

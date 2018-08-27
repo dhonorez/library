@@ -24,4 +24,5 @@ public interface UserService {
     void createUserWithSuggestion(LibaryUser libraryUser, Suggestion suggestion);
 
     void removeUser(long id);
+
 }
