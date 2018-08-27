@@ -9,12 +9,14 @@ import java.util.List;
  */
 public interface BookService {
 
-    List<String> getAllAuthors();
+    Iterable<Book> findAll();
+
+    List<Book> getAllAuthors();
 
     void updateBookName(long id, String name);
 
     Integer getNumberOfBooks();
 
-    Iterable<Book> findAll();
+    void updateBookTitle(long id, String title);
 
 }

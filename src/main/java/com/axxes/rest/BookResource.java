@@ -30,7 +30,7 @@ public class BookResource {
     }
 
     @RequestMapping(value = "/authors", method = RequestMethod.GET)
-    public List<String> getAllAuthors() {
+    public List<Book> getAllAuthors() {
         return bookService.getAllAuthors();
     }
 
@@ -38,6 +38,12 @@ public class BookResource {
     public void updateBookName(@PathVariable long id,
                                @RequestParam(value="name") String name) {
         bookService.updateBookName(id, name);
+    }
+
+    @RequestMapping(value = "/updateBookTitle/{id}", method = RequestMethod.PUT)
+    public void updateBookTitle(@PathVariable long id,
+                                @RequestParam(value="title") String title) {
+        bookService.updateBookTitle(id, title);
     }
 
     @RequestMapping(value = "/count", method = RequestMethod.GET)
